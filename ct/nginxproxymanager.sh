@@ -125,6 +125,7 @@ function update_script() {
   # Replace node-sass with sass in package.json before installation
   sed -E -i 's/"node-sass" *: *"([^"]*)"/"sass": "\1"/g' package.json
   $STD yarn install --network-timeout 600000
+  $STD yarn locale-compile
   $STD yarn build
   cp -r /opt/nginxproxymanager/frontend/dist/* /app/frontend
   cp -r /opt/nginxproxymanager/frontend/public/images/* /app/frontend/images
